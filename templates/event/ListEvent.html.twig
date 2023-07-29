@@ -1,0 +1,57 @@
+
+{% block body %}
+    <style>
+        h1{
+            font-family: Arial , Helvetica ;
+            text-align: center;
+
+            color: #005eff;
+        }
+        table {
+            width: auto;
+            text-align: center;
+            align-content: center;
+            table-border-color-dark: #0b2e13;
+            position: center;}
+    </style>
+    <img src="{{ asset('assets/img/logo.png')}}" alt="" />
+              <u> <h1 class="card-title">Evenements</h1></u>
+    <table class="table table-striped">
+                    <thead>
+                    <style>
+                        .center {
+                            text-align: center;
+                        }
+                        .center img {
+                            display: block;
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
+                    </style>
+                    <tr>
+                        <th>Nom </th>
+                        <th>Date debut</th>
+                        <th>Date fin</th>
+                        <th>Theme </th>
+                        <th>Adresse </th>
+                        <th>Telephone</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+                    {% for evenement in event  %}
+                        <tr>
+                            <td>{{ evenement.nomEvent }}</td>
+                            <td>{{ evenement.ddEvent |date('d-m-Y') }}</td>
+                            <td>{{ evenement.dfEvent |date('d-m-Y') }}</td>
+                            <td>{{ evenement.themeEvent }}</td>
+                            <td>{{ evenement.adresseEvent }}</td>
+                            <td>{{ evenement.telephone }}</td>
+
+                        </tr>
+                    {% endfor %}
+
+                   </tbody>
+
+                </table>
+
+{% endblock %}
